@@ -120,11 +120,14 @@ docker compose up --build
 
 ## Versión 0.1
 
-- [ ] Configurar proyecto
-- [ ] Docker Compose
-- [ ] PostgreSQL
-- [ ] FastAPI
-- [ ] React
+- [-] Git
+- [-] README
+- [-] FastAPI
+- [-] Docker
+- [ ] SQLAlchemy
+- [ ] Alembic
+- [ ] Configuración
+
 
 ---
 

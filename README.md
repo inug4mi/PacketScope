@@ -120,10 +120,10 @@ docker compose up --build
 
 ## Versión 0.1
 
-- [-] Git
-- [-] README
-- [-] FastAPI
-- [-] Docker
+- [x] Git
+- [x] README
+- [x] FastAPI
+- [x] Docker
 - [ ] SQLAlchemy
 - [ ] Alembic
 - [ ] Configuración

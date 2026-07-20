@@ -124,10 +124,12 @@ docker compose up --build
 - [x] README
 - [x] FastAPI
 - [x] Docker
-- [ ] SQLAlchemy
+- [x] PostgreSQL (Docker)
+- [x] SQLAlchemy (Engine + Session)
+- [x] Probar conexión a la BD
 - [ ] Alembic
-- [ ] Configuración
-
+- [ ] Primera migración
+- [ ] Modelo User
 
 ---
 

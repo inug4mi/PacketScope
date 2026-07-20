@@ -8,3 +8,28 @@ services:
 
     volumes:
       - ./backend:/app
+
+    depends_on:
+      - postgres
+    
+    environment:
+      DATABASE_URL: postgresql://packetscope:packetscope@postgres:5432/packetscope
+
+  postgres:
+    image: postgres:17
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: packetscope
+      POSTGRES_PASSWORD: packetscope
+      POSTGRES_DB: packetscope
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

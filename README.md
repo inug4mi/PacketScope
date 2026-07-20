@@ -128,12 +128,12 @@ docker compose up --build
 - [x] SQLAlchemy (Engine + Session)
 - [x] Probar conexión a la BD
 
-- [ ] Crear Base ORM
-- [ ] Modelo User
-- [ ] Instalar Alembic
-- [ ] Configurar Alembic
-- [ ] Primera migración
-- [ ] Crear tablas automáticamente
+- [x] Crear Base ORM
+- [x] Modelo User
+- [x] Instalar Alembic
+- [x] Configurar Alembic
+- [x] Primera migración
+- [x] Crear tablas automáticamente
 
 
 ---

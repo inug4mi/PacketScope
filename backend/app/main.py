@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from app.core.config import APP_NAME
 
 app = FastAPI(
-    title="NetSentinel API",
+    title=APP_NAME,
     description="Asset Discovery & Security Assessment Platform",
     version="0.1.0",
 )
@@ -9,6 +10,6 @@ app = FastAPI(
 @app.get("/")
 def root():
     return {
-        "message": "Welcome to NetSentinel API",
+        "message": f"Welcome to {APP_NAME}!",
         "version": "0.1.0"
     }

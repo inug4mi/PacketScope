@@ -178,6 +178,72 @@ Este proyecto tiene como propósito reforzar conocimientos en:
 
 ---
 
+# En desarrollo... [V0.1]
+
+api/
+
+Aquí vivirán los endpoints.
+
+Ejemplo:
+
+/users
+
+/scans
+
+/auth
+models/
+
+Aquí estarán las tablas de SQLAlchemy.
+
+User
+
+Scan
+
+Host
+schemas/
+
+Aquí estarán los modelos de Pydantic.
+
+Por ejemplo:
+
+UserCreate
+
+UserResponse
+
+LoginRequest
+services/
+
+Aquí irá la lógica.
+
+Por ejemplo:
+
+Ejecutar Nmap
+
+Consultar CVEs
+
+Generar PDF
+db/
+
+Aquí vivirá todo lo relacionado con la base de datos.
+
+Sesiones.
+
+Conexión.
+
+Engine.
+
+core/
+
+Aquí colocaremos cosas importantes para toda la aplicación.
+
+Por ejemplo:
+
+config.py
+
+security.py
+
+logging.py
+
 # Licencia
 
 MIT

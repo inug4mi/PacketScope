@@ -8,3 +8,5 @@ uvicorn app.main:app --reload
 
 # Ejecución docker (tras copiar el repositorio)
 docker compose up --build
+docker compose up, docker stop container_id, docker start container_id
+docker images, docker ps -a (contenedores),

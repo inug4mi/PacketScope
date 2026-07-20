@@ -10,3 +10,7 @@ uvicorn app.main:app --reload
 docker compose up --build
 docker compose up, docker stop container_id, docker start container_id
 docker images, docker ps -a (contenedores),
+docker compose exec container_name bash
+
+# Base de datos
+psql -U packetscope -d packetscope

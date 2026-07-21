@@ -127,7 +127,6 @@ docker compose up --build
 - [x] PostgreSQL (Docker)
 - [x] SQLAlchemy (Engine + Session)
 - [x] Probar conexión a la BD
-
 - [x] Crear Base ORM
 - [x] Modelo User
 - [x] Instalar Alembic
@@ -140,14 +139,24 @@ docker compose up --build
 
 ## Versión 0.2
 
+- [ ] Reorganizar la arquitectura
+- [ ] Schemas (Pydantic)
+- [ ] CRUD
+- [ ] Routers
+- [ ] Crear usuarios
+- [ ] Hash de contraseña
 - [ ] Login
-- [ ] Autenticación JWT
-- [ ] Usuarios
+- [ ] JWT
 
 ---
 
 ## Versión 0.3
 
+- [ ] Activos (Assets)
+- [ ] Hosts
+- [ ] IPs
+- [ ] Dominios
+- [ ] Escaneos
 - [ ] Ejecutar Nmap
 - [ ] Obtener hosts
 - [ ] Escaneo de puertos

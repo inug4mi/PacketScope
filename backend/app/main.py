@@ -1,45 +1,31 @@
-from fastapi import FastAPI, Depends
-from app.core.config import APP_NAME
-
+from fastapi import FastAPI
 from sqlalchemy import text
-from sqlalchemy.orm import Session
 
+from app.core.config import APP_NAME
 from app.db.database import engine
-from app.db.database import SessionLocal
-from app.db.database import get_db
-from app.models.user import User
+from app.api.users import router as users_router
+
 
 app = FastAPI(
     title=APP_NAME,
     description="Asset Discovery & Security Assessment Platform",
-    version="0.1.0",
+    version="0.2.0",
 )
+
 
 @app.on_event("startup")
 def test_database_connection():
     with engine.connect() as connection:
         connection.execute(text("SELECT 1"))
-        print("✅ Conexión exitosa con PostgreSQL")
+        print("✅ PostgreSQL connection successful")
 
 
 @app.get("/")
 def root():
     return {
         "message": f"Welcome to {APP_NAME}!",
-        "version": "0.1.0"
+        "version": "0.2.0"
     }
 
 
-@app.get("/users")
-def get_users(db: Session = Depends(get_db)):
-    users = db.query(User).all()
-
-    return [
-        {
-            "id": user.id,
-            "username": user.username,
-            "email": user.email,
-            "created_at": user.created_at,
-        }
-        for user in users
-    ]
+app.include_router(users_router)

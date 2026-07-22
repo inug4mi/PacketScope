@@ -133,20 +133,20 @@ docker compose up --build
 - [x] Configurar Alembic
 - [x] Primera migración
 - [x] Crear tablas automáticamente
-
+- [x] Schemas (Pydantic)
+- [x] CRUD
+- [x] Routers
+- [x] Crear usuarios
 
 ---
 
 ## Versión 0.2
 
-- [ ] Reorganizar la arquitectura
-- [ ] Schemas (Pydantic)
-- [ ] CRUD
-- [ ] Routers
-- [ ] Crear usuarios
-- [ ] Hash de contraseña
-- [ ] Login
-- [ ] JWT
+- [x] Hash de contraseña
+- [x] Login
+- [ ] Generación de JWT
+- [ ] Endpoint protegido (/me o /profile)
+- [ ] Dependencia get_current_user
 
 ---
 

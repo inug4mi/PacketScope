@@ -29,5 +29,13 @@ def root():
     }
 
 
+from app.core.security import create_access_token
+
+@app.get("/test-token")
+def test_token():
+    token = create_access_token("inug4mdi@example.com")
+    return {
+        "token": token
+    }
 app.include_router(users_router)
 app.include_router(auth_router)

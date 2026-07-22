@@ -1,14 +1,22 @@
 from sqlalchemy.orm import Session
 from app.models.user import User
 
+from app.schemas.user import UserCreate
+
+
 def get_all_users(db: Session):
     return db.query(User).all()
 
-def get_user_by_id():
-    pass
 
-def create_user():
-    pass
+def create_user(db: Session, user: UserCreate):
+    db_user = User(
+        username=user.username,
+        email=user.email,
+        hashed_password=user.password
+    )
 
-def delete_user():
-    pass
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+
+    return db_user

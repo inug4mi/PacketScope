@@ -1,15 +1,17 @@
-class UserResponse(BaseModel):
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict
 
-    id: int
 
+class UserBase(BaseModel):
     username: str
-
     email: str
 
-class UserCreate(BaseModel):
 
-    username:str
+class UserCreate(UserBase):
+    password: str
 
-    email:str
 
-    password:str
+class UserResponse(UserBase):
+    id: int
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True) # "Puedes convertir automáticamente un objeto de SQLAlchemy en este Schema."

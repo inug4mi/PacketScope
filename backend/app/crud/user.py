@@ -13,6 +13,9 @@ def get_all_users(db: Session):
         print(f"Error detectado: {e}")
         raise e
 
+def get_user_by_email(db: Session, email: str):
+    return db.query(User).filter(User.email == email).first(    )
+
 def create_user(db: Session, user: UserCreate):
     db_user = User(
         username=user.username,

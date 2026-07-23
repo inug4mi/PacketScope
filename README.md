@@ -144,7 +144,45 @@ docker compose up --build
 
 - [x] Hash de contraseña
 - [x] Login
-- [ ] Generación de JWT
+- [x] Generación de JWT
+- [ ] Verificar firma (con usuario en postgres)
+- [ ]
+    El plan que seguiremos
+    Bloque 1: Validar el JWT
+    Añadir la función decode_access_token().
+    Verificar:
+    firma;
+    expiración;
+    algoritmo.
+    Extraer el sub.
+
+    Prueba: introducir un JWT válido e inválido y comprobar que el resultado es el esperado.
+
+    Bloque 2: Obtener el usuario autenticado
+    Implementar get_current_user().
+    Buscar el usuario en PostgreSQL usando el sub.
+    Si no existe, responder 401 Unauthorized.
+
+    Prueba: usar un token válido y verificar que devuelve el usuario correcto.
+
+    Bloque 3: Proteger endpoints
+    Configurar OAuth2PasswordBearer.
+    Añadir Depends(get_current_user) a una ruta como /me.
+
+    Prueba: comprobar que:
+
+    sin token → 401;
+    token inválido → 401;
+    token expirado → 401;
+    token válido → datos del usuario.
+    Bloque 4: Eliminar código de prueba
+    Eliminar /test-token.
+    Hacer que el único lugar donde se genere un JWT sea /auth/login.
+    Bloque 5: Refactor final
+    Revisar la arquitectura.
+    Eliminar código duplicado.
+    Verificar que todo sigue funcionando.
+
 - [ ] Endpoint protegido (/me o /profile)
 - [ ] Dependencia get_current_user
 
@@ -201,23 +239,28 @@ Este proyecto tiene como propósito reforzar conocimientos en:
 
 app/
 
-├── api/
-│   └── users.py
-│
-├── crud/
-│   └── user.py
-│
-├── models/
-│   └── user.py
-│
-├── db/
-│   ├── base.py
-│   └── database.py
-│
-├── core/
-│   └── config.py
-│
-└── main.py
+api/
+    auth.py
+    users.py
+
+core/
+    config.py
+    security.py
+
+crud/
+    auth.py
+    user.py
+
+db/
+    base.py
+    database.py
+
+models/
+    user.py
+
+schemas/
+    auth.py
+    user.py
 
 # Licencia
 

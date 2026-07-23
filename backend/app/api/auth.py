@@ -6,6 +6,8 @@ from app.db.database import get_db
 from app.crud.auth import authenticate_user
 from app.schemas.auth import LoginRequest
 
+from app.core.security import create_access_token
+
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
@@ -28,11 +30,14 @@ def login(
             detail="Invalid email or password"
         )
     
+    # if authenticated creates token by email
+    access_token = create_access_token(
+        subject=user.email
+    )
+
+    # if token made successful then logged
     return {
-        "message": "Login successful",
-        "user": {
-            "id": user.id,
-            "username": user.username,
-            "email": user.email
-        }
+        "message": "Login successfull",
+        "access_token": access_token,
+        "token_type": "bearer"
     }

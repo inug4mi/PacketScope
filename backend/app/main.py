@@ -29,13 +29,33 @@ def root():
     }
 
 
-from app.core.security import create_access_token
+from app.core.security import (
+    create_access_token,
+    decode_access_token,
+)
 
 @app.get("/test-token")
 def test_token():
-    token = create_access_token("inug4mdi@example.com")
+    token = create_access_token(
+        "inug4mi@example.com"
+    )
+
     return {
-        "token": token
+        "token": token,
     }
+
+
+@app.get("/decode-test")
+def decode_test():
+    token = create_access_token(
+        "inug4mi@example.com"
+    )
+
+    payload = decode_access_token(token)
+    return {
+        "token": token,
+        "payload": payload,
+    }
+
 app.include_router(users_router)
 app.include_router(auth_router)

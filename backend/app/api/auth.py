@@ -13,7 +13,7 @@ router = APIRouter(
     tags=["Authentication"]
 )
 
-@router.post("/login")
+@router.post("/login",include_in_schema=False)
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)

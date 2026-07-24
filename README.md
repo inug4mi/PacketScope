@@ -109,7 +109,7 @@ Este proyecto está desarrollado como parte de mi portafolio profesional para de
 ```bash
 git clone ...
 
-cd cyberinsight
+cd packetscope
 
 docker compose up --build
 ```
@@ -147,48 +147,56 @@ docker compose up --build
 - [x] Generación de JWT
 - [x] Verificar firma (con usuario en postgres)
 - [x]
-    El plan que seguiremos
-    Bloque 1: Validar el JWT
-    Añadir la función decode_access_token().
-    Verificar:
-    firma;
-    expiración;
-    algoritmo.
-    Extraer el sub.
-
-    Prueba: introducir un JWT válido e inválido y comprobar que el resultado es el esperado.
-
-- [ ]Bloque 2: Obtener el usuario autenticado
+- [x] Bloque 2: Obtener el usuario autenticado
     Implementar get_current_user().
-    Buscar el usuario en PostgreSQL usando el sub.
-    Si no existe, responder 401 Unauthorized.
-
-    Prueba: usar un token válido y verificar que devuelve el usuario correcto.
-
-    Bloque 3: Proteger endpoints
+- [x] Bloque 3: Proteger endpoints
     Configurar OAuth2PasswordBearer.
     Añadir Depends(get_current_user) a una ruta como /me.
-
     Prueba: comprobar que:
-
     sin token → 401;
     token inválido → 401;
     token expirado → 401;
     token válido → datos del usuario.
-    Bloque 4: Eliminar código de prueba
+
+- [x] Bloque 4: Eliminar código de prueba
     Eliminar /test-token.
     Hacer que el único lugar donde se genere un JWT sea /auth/login.
-    Bloque 5: Refactor final
+    
+- [x] Bloque 5: Refactor final
     Revisar la arquitectura.
     Eliminar código duplicado.
     Verificar que todo sigue funcionando.
 
-- [ ] Endpoint protegido (/me o /profile)
-- [ ] Dependencia get_current_user
+- [x] Endpoint protegido (/me o /profile)
+- [x] Dependencia get_current_user
 
 ---
 
+## Version 0.2.1
+- [ ] Roles (admin, estandar)
+- [ ] Usuario activo/inactivo
+
 ## Versión 0.3
+
+Assets
+
+- [ ] Modelo Asset
+- [ ] CRUD Asset
+- [ ] Crear Asset
+- [ ] Listar Assets
+- [ ] Editar Asset
+- [ ] Eliminar Asset
+
+Hosts
+
+- [ ] IPv4
+- [ ] IPv6
+- [ ] Dominio
+- [ ] Validaciones
+
+Relaciones
+
+- [ ] Usuario → Assets
 
 - [ ] Activos (Assets)
 - [ ] Hosts
@@ -204,6 +212,16 @@ docker compose up --build
 ---
 
 ## Versión 0.4
+
+Scans
+
+- [ ] Modelo Scan
+- [ ] Crear Scan
+- [ ] Cola de escaneo
+- [ ] Ejecutar Nmap
+- [ ] Guardar XML
+- [ ] Parsear XML
+- [ ] Guardar resultados
 
 - [ ] Dashboard
 - [ ] Tabla de hosts

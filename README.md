@@ -145,8 +145,8 @@ docker compose up --build
 - [x] Hash de contraseña
 - [x] Login
 - [x] Generación de JWT
-- [ ] Verificar firma (con usuario en postgres)
-- [ ]
+- [x] Verificar firma (con usuario en postgres)
+- [x]
     El plan que seguiremos
     Bloque 1: Validar el JWT
     Añadir la función decode_access_token().
@@ -158,7 +158,7 @@ docker compose up --build
 
     Prueba: introducir un JWT válido e inválido y comprobar que el resultado es el esperado.
 
-    Bloque 2: Obtener el usuario autenticado
+- [ ]Bloque 2: Obtener el usuario autenticado
     Implementar get_current_user().
     Buscar el usuario en PostgreSQL usando el sub.
     Si no existe, responder 401 Unauthorized.

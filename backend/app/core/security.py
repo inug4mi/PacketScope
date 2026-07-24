@@ -1,3 +1,7 @@
+'''
+Codigo limitado a funciones criptográficas...
+'''
+
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
